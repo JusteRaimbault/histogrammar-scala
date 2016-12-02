@@ -14,34 +14,31 @@
 
 package org.dianahep.histogrammar
 
-import scala.collection.JavaConversions._
+//import scala.collection.JavaConversions._
 import scala.language.existentials
 import scala.reflect.ClassTag
 
-import org.apache.spark.sql.types.StringType
-import org.apache.spark.sql.types.DoubleType
 import org.apache.spark.sql.Column
-import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.Row
 
 import org.apache.spark.sql.expressions.Aggregator
 import org.apache.spark.sql.{Encoder, Encoders}
 import org.apache.spark.sql.catalyst.encoders.ExpressionEncoder
 import org.apache.spark.sql.types._
 
+//import org.apache.spark.sql.functions._
+
 package sparksql {
   import org.dianahep.histogrammar.util.Compatible
 
-  class HistogrammarAggregator[-DATUM, CONTAINER <: Container[CONTAINER] with AggregationOnData {type Datum >: DATUM}](container: CONTAINER) extends Aggregator[DATUM, CONTAINER, CONTAINER] {
+  class HistogrammarAggregator[-DATUM, CONTAINER <: Container[CONTAINER] with AggregationOnData {type Datum >: DATUM} : ClassTag](container: CONTAINER) extends Aggregator[DATUM, CONTAINER, CONTAINER] {
 
    def zero = container
    def reduce(h: CONTAINER, x: DATUM) = {h.fill(x); h}
    def merge(h1: CONTAINER, h2: CONTAINER) = h1 + h2
    def finish(whatever: CONTAINER): CONTAINER = whatever
 
-   override def bufferEncoder: Encoder[CONTAINER] = ???
-   override def outputEncoder: Encoder[CONTAINER] = ???
+   override def bufferEncoder: Encoder[CONTAINER] = Encoders.kryo[CONTAINER]
+   override def outputEncoder: Encoder[CONTAINER] = Encoders.kryo[CONTAINER]
 
  }
-
 }
