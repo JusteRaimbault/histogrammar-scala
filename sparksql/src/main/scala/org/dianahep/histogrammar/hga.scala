@@ -30,7 +30,7 @@ import org.apache.spark.sql.types._
 package sparksql {
   import org.dianahep.histogrammar.util.Compatible
 
-  class HistogrammarAggregator[-DATUM, CONTAINER <: Container[CONTAINER] with AggregationOnData {type Datum >: DATUM} : ClassTag](container: CONTAINER) extends Aggregator[DATUM, CONTAINER, CONTAINER] {
+  class HistogrammarAggregator[DATUM, CONTAINER <: Container[CONTAINER] with AggregationOnData {type Datum >: DATUM} : ClassTag](container: CONTAINER) extends Aggregator[DATUM, CONTAINER, CONTAINER] {
 
    def zero = container
    def reduce(h: CONTAINER, x: DATUM) = {h.fill(x); h}
