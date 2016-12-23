@@ -30,15 +30,14 @@ import org.apache.spark.sql.types._
 package sparksql {
   import org.dianahep.histogrammar.util.Compatible
 
-  class HistogrammarAggregator[DATUM, CONTAINER <: Container[CONTAINER] with AggregationOnData {type Datum >: DATUM} : ClassTag](container: CONTAINER) extends Aggregator[DATUM, CONTAINER, CONTAINER] {
+  class HistogrammarAggregator[CONTAINER <: Container[CONTAINER] with AggregationOnData : ClassTag](container: CONTAINER) extends Aggregator[CONTAINER#Datum, CONTAINER, CONTAINER] {
+    def zero = container
+    def reduce(h: CONTAINER, x: CONTAINER#Datum) = {h.fill(x.asInstanceOf[h.Datum]); h}
+    def merge(h1: CONTAINER, h2: CONTAINER) = h1 + h2
+    def finish(whatever: CONTAINER): CONTAINER = whatever
 
-   def zero = container
-   def reduce(h: CONTAINER, x: DATUM) = {h.fill(x); h}
-   def merge(h1: CONTAINER, h2: CONTAINER) = h1 + h2
-   def finish(whatever: CONTAINER): CONTAINER = whatever
+    override def bufferEncoder: Encoder[CONTAINER] = Encoders.kryo[CONTAINER]
+    override def outputEncoder: Encoder[CONTAINER] = Encoders.kryo[CONTAINER]
 
-   override def bufferEncoder: Encoder[CONTAINER] = Encoders.kryo[CONTAINER]
-   override def outputEncoder: Encoder[CONTAINER] = Encoders.kryo[CONTAINER]
-
- }
+  }
 }
