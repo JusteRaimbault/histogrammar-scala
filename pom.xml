@@ -9,10 +9,10 @@
   <url>http://histogrammar.org</url>
   <inceptionYear>2016</inceptionYear>
 
-  <groupId>org.diana-hep</groupId>
+  <groupId>org.openmole</groupId>
   <artifactId>histogrammar-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.4</version>
+  <version>1.0.4-SNAPSHOT</version>
 
   <licenses>
     <license>
@@ -70,6 +70,8 @@
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+     <layout>default</layout> 
+      <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>

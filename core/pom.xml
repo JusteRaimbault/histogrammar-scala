@@ -20,9 +20,9 @@
   <url>http://histogrammar.org</url>
   <inceptionYear>2016</inceptionYear>
 
-  <groupId>org.diana-hep</groupId>
+  <groupId>org.openmole</groupId>
   <artifactId>histogrammar_2.12</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.4-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <licenses>
@@ -123,6 +123,20 @@
     </dependency>
 
   </dependencies>
+
+<distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+     <layout>default</layout>
+   <uniqueVersion>false</uniqueVersion>   
+</snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
 
   <repositories>
     <repository>
