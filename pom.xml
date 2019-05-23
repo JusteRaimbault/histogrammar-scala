@@ -35,7 +35,7 @@
     <profile>
       <id>scala-2.10</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
+        <property><name>scala-2.10</name></property>
       </activation>
       <modules>
         <module>core</module>
@@ -51,6 +51,16 @@
       <modules>
         <module>core</module>
         <module>sparksql</module>
+        <!-- <module>bokeh</module> -->    <!-- Not supported until they fix their dependencies. -->
+      </modules>
+    </profile>
+    <profile>
+      <id>scala-2.12</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>core</module>
         <!-- <module>bokeh</module> -->    <!-- Not supported until they fix their dependencies. -->
       </modules>
     </profile>
