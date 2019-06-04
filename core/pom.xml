@@ -22,7 +22,7 @@
 
   <groupId>org.openmole.library</groupId>
   <artifactId>histogrammar_2.12</artifactId>
-  <version>1.0.4.1-SNAPSHOT</version>
+  <version>1.0.4.1</version>
   <packaging>jar</packaging>
 
   <licenses>
@@ -46,6 +46,7 @@
     <connection>scm:git:git@github.com:histogrammar/histogrammar-scala.git</connection>
     <developerConnection>scm:git:git@github.com:histogrammar/histogrammar-scala.git</developerConnection>
     <url>git@github.com:histogrammar/histogrammar-scala.git</url>
+    <tag>histogrammar-parent-1.0.4.1</tag>
   </scm>
 
   <profiles>
