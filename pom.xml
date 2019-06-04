@@ -7,7 +7,7 @@
   <inceptionYear>2016</inceptionYear>
 
 <scm>
-    <developerConnection>scm:git:git//github.com/JusteRaimbault/histogrammar-scala.git</developerConnection>
+    <connection>scm:git:git//github.com/JusteRaimbault/histogrammar-scala.git</connection>
     <tag>histogrammar-parent-1.0.4.1</tag>
   </scm>
 
