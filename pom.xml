@@ -9,10 +9,14 @@
   <url>http://histogrammar.org</url>
   <inceptionYear>2016</inceptionYear>
 
-  <groupId>org.openmole</groupId>
+<scm>
+    <developerConnection>scm:git:https://github.com/JusteRaimbault/histogrammar-scala</developerConnection>
+  </scm>
+
+  <groupId>org.openmole.library</groupId>
   <artifactId>histogrammar-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.4.1-SNAPSHOT</version>
 
   <licenses>
     <license>
@@ -28,6 +32,11 @@
       <email>jpivarski@gmail.com</email>
       <organization>DIANA-HEP</organization>
       <organizationUrl>http://diana-hep.org</organizationUrl>
+    </developer>
+<developer>
+      <name>Juste Raimbault</name>
+      <email>juste.raimbault@polytechnique.edu</email>
+      <organization>org.openmole</organization>
     </developer>
   </developers>
 

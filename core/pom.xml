@@ -20,9 +20,9 @@
   <url>http://histogrammar.org</url>
   <inceptionYear>2016</inceptionYear>
 
-  <groupId>org.openmole</groupId>
+  <groupId>org.openmole.library</groupId>
   <artifactId>histogrammar_2.12</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.4.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <licenses>
